@@ -1,14 +1,11 @@
-FROM node:16-alphine
+FROM node:16-alpine
 
 WORKDIR /app
 
 COPY package* .
-RUN npm install
 
 RUN npm install && npm cache clean --force
 
-RUN npm install -g nodemon
-
-COPY ./ ./
+COPY . .
 
 CMD ["npm","run","start"]
