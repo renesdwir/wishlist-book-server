@@ -13,10 +13,10 @@ class BookController {
 
   static addWishlistBook = async (req, res, next) => {
     try {
-      const { bookId, title, thumbnail, authors, averageRating, ratingCount } =
+      const { bookId, title, thumbnail, authors, averageRating, ratingsCount } =
         req.body;
       const existingBook = await Book.findOne({ bookId });
-      if (existingBook) throw { name: "Book already exists" };
+      if (existingBook) throw { name: "The book is already on the wishlist" };
 
       let book = new Book({
         bookId,
@@ -24,7 +24,7 @@ class BookController {
         thumbnail,
         authors,
         averageRating,
-        ratingCount,
+        ratingsCount,
       });
       let newBook = await book.save();
       res
@@ -37,8 +37,8 @@ class BookController {
 
   static deleteWishlistBook = async (req, res, next) => {
     try {
-      const { bookId } = req.body;
-      const deletedBook = await Book.findOneAndDelete({ bookId });
+      const { id } = req.params;
+      const deletedBook = await Book.findOneAndDelete({ bookId: id });
       if (!deletedBook) throw { name: "Book does not exists" };
       res.status(200).json({
         message: "Wishlist book deleted successfully",

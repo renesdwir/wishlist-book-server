@@ -23,7 +23,7 @@ let bookSchema = new mongoose.Schema(
       default: 0,
       required: [true, "Rating is required"],
     },
-    ratingCount: {
+    ratingsCount: {
       type: Number,
       default: 0,
       required: [true, "Rating Count is required"],
