@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let bookSchema = new mongoose.Schema(
+let bookListSchema = new mongoose.Schema(
   {
     bookId: {
       type: String,
@@ -31,4 +31,4 @@ let bookSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Book", bookSchema);
+module.exports = mongoose.model("BookList", bookListSchema);

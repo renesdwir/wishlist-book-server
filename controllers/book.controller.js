@@ -1,4 +1,5 @@
 const Book = require("../model/book.model");
+const BookList = require("../model/bookList.model");
 
 class BookController {
   static getWishlistBook = async (req, res, next) => {
@@ -12,7 +13,8 @@ class BookController {
 
   static addWishlistBook = async (req, res, next) => {
     try {
-      const { bookId, title, thumbnail, authors, averageRating } = req.body;
+      const { bookId, title, thumbnail, authors, averageRating, ratingCount } =
+        req.body;
       const existingBook = await Book.findOne({ bookId });
       if (existingBook) throw { name: "Book already exists" };
 
@@ -22,6 +24,7 @@ class BookController {
         thumbnail,
         authors,
         averageRating,
+        ratingCount,
       });
       let newBook = await book.save();
       res
