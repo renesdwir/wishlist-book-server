@@ -1,5 +1,4 @@
 const Book = require("../model/book.model");
-const BookList = require("../model/bookList.model");
 
 class BookController {
   static getWishlistBook = async (req, res, next) => {
