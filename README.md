@@ -2,6 +2,10 @@
 
 This is a server from the wishlistbook client that I created, there are 3 APIs, including get, post, and delete wishlist
 
+link deployment server : https://wishlist-book-server-production.up.railway.app/
+
+link deployment client : https://wishlist-book-client.vercel.app/
+
 ## Built With
 
 - [![Nodejs][nodejs]][nodejsurl]
